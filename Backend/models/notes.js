@@ -1,6 +1,12 @@
-import mongoose from "mongoose";
+const mongoose = require("mongoose")
+const { Schema } = mongoose;
 
-const NotesSchema = new Schemna ( {
+const NotesSchema = new Schema ( {
+    user:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'user'
+
+    },
     title:{
         type:String,
         required:true
@@ -20,4 +26,5 @@ const NotesSchema = new Schemna ( {
     }
 });
 
-module.exports=NotesSchema
+const Notes = mongoose.model('Notes', NotesSchema);
+module.exports = Notes;
