@@ -1,12 +1,13 @@
 const connectedtomongo =  require('./db')
 const express = require('express');
+var cors = require('cors')
 
 connectedtomongo();
 
 
 const app = express()
 const port = 5000
-
+app.use(cors())
 app.use(express.json())
 
 //available routes
