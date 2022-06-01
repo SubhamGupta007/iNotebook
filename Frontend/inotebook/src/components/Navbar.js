@@ -11,6 +11,9 @@ const Navbar = () => {
     // console.log(location);
   }, [location])
 
+  const logout = () =>{
+    localStorage.removeItem('token');
+  }
   return (
     
     <>
@@ -28,14 +31,20 @@ const Navbar = () => {
         <li className="nav-item">
         <a className={`nav-link ${location.pathname==='/about' ? "active" : "" }`} aria-current="page" href="/about">About</a>
         </li>
-        <li className="nav-item">
-        <a className={`nav-link ${location.pathname==='/users' ? "active" : "" }`} aria-current="page" href="/users">User</a>
-        </li>
-        
+      
        
       </ul>
-      <a href="/login" className="btn btn-success btn-md active" role="button" aria-pressed="true">Login </a>
-      <a href="/signup" className="btn btn-danger mx-1 btn-md active" role="button" aria-pressed="true">Signup</a>
+      
+        {
+          (!localStorage.getItem('token'))?
+          <div>
+          <a href="/login" className="btn btn-success btn-md active" role="button" aria-pressed="true">Login </a>
+          <a href="/signup" className="btn btn-danger mx-1 btn-md active" role="button" aria-pressed="true">Signup</a>
+          </div>:
+          <div>
+            <a href="" className="btn btn-danger btn-md active" role="button" aria-pressed="true" onClick={logout}>Logout </a>     
+          </div>
+        }
      
     </div>
   </div>

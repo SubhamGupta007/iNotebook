@@ -21,7 +21,7 @@ const Signup = () => {
         if(json.success)
         {
             localStorage.setItem('token', json.authtoken);
-            navigate.push("/")
+            navigate("/")
         }
         else
         console.log('enter a valid credentials')

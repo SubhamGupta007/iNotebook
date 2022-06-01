@@ -24,9 +24,7 @@ function App() {
         <About/>
      }/>
       
-     <Route exact path="/user" element={
-      <Users/>
-     }/>
+   
       
       <Route exact path="/login" element={
       <Login/>
